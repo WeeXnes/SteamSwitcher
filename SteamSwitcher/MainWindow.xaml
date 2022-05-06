@@ -5,8 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamSwitcher"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Height="316" Width="520"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Title="Steam Switcher"
+        MouseDown="MainWindow_OnMouseDown">
+        <Window.Resources>
+                <Style TargetType="Image">
+                        <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
+                </Style>
+        </Window.Resources>
+        <Border CornerRadius="4"
+                Background="#2c2e36" Margin="16">
+                <Border.Effect>
+                        <DropShadowEffect BlurRadius="15" Direction="-90"
+                                          RenderingBias="Quality" ShadowDepth="2"/>
+                </Border.Effect>
         
-    </Grid>
+                <Grid>
+                        <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="WeeXnes - SteamSwitcher"
+                               Grid.Row="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="#9197ab"/>
+                        <DockPanel Grid.Row="0" HorizontalAlignment="Right" Margin="0,5,5,5">
+                                
+                                <Button Name="MinimizeButton" Width="20" BorderThickness="0" Background="Transparent" Click="MinimizeButton_OnClick"
+                                        Style="{StaticResource SomeButtonStyle}">
+                                        <StackPanel>
+                                                <Image Source="Images\green.png" Margin="1"/>
+                                        </StackPanel>
+                                </Button>
+                                <Button Name="MaximizeButton" Width="20" BorderThickness="0" Background="Transparent" Click="MaximizeButton_OnClick"
+                                        Style="{StaticResource SomeButtonStyle}">
+                                        <StackPanel>
+                                                <Image Source="Images\yellow.png" Margin="1"/>
+                                        </StackPanel>
+                                </Button>
+                                <Button Name="CloseButton" Width="20" BorderThickness="0" Background="Transparent" Click="CloseButton_OnClick"
+                                        Style="{StaticResource SomeButtonStyle}">
+                                        <StackPanel>
+                                                <Image Source="Images\red.png" Margin="1"/>
+                                        </StackPanel>
+                                </Button>
+                        </DockPanel>
+                        <Border Grid.Row="1" Margin="5" Background="#212329" CornerRadius="4">
+                                <ListView  Margin="5" Name="AccoutListView"
+                                           Background="Transparent"
+                                           BorderThickness="0"
+                                           Foreground="DarkGray"
+                                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                           ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                           MouseDoubleClick="AccoutListView_OnMouseDoubleClick">
+                                        
+                                                
+                                </ListView>
+                        </Border>
+                        
+                        <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <TextBox Width="366" Margin="5" Name="tb_AccountName" KeyDown="Tb_AccountName_OnKeyDown"
+                                         Style="{StaticResource KeyNameTextbox}"/>
+                                <Button Margin="5" Width="46" Name="btn_AddAccount" Click="Btn_AddAccount_OnClick" 
+                                        Style="{StaticResource SwitcherAddButton}"/>
+                                <Button Margin="5" Width="46" Name="btn_SwitchAccount" Click="Btn_SwitchAccount_OnClick"
+                                        Style="{StaticResource SwitcherSwitchButton}"/>
+                        </StackPanel>
+                </Grid>
+        </Border>
 </Window>
