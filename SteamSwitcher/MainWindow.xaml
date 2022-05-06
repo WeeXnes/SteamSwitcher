@@ -13,6 +13,7 @@
         Title="Steam Switcher"
         WindowStartupLocation="CenterScreen"
         MouseDown="MainWindow_OnMouseDown">
+        
         <Window.Resources>
                 <Style TargetType="Image">
                         <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
